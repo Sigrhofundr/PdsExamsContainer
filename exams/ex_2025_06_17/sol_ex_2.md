@@ -52,7 +52,12 @@ Totale: 3 blocchi indice
 
 Dato il file binario della domanda precedente, di dimensione 5381KB, calcolare la frammentazione interna relativa ai blocchi indice.  Il risultato va rappresentato in Byte (B).
 
-**Risposta:** 3040
+Sappiamo che un blocco indice di secondo livello contiene 1024 puntatori. Quindi avremo 1346-1024 = 322 puntatori utilizzati nel secondo blocco indice.<br>
+Per ottenere la frammentazione interna tuttavia ci servono i blocchi **non utilizzati**, che otteniamo facendo 1024 -322 = 702 puntatori. <br>
+A questo punto ci basta moltiplicare per la dimensione dei puntatori per ottenere il valore della frammentazione interna relativa ai blocchi indice espressa in Byte. <br>
+Framm_interna = Puntatori_non_utilizzati * Dim_Puntatore = 702 * 4 = 2808 Bytes
+
+**Risposta:** 2808 Bytes
 
 ### Domanda 8
 
@@ -60,4 +65,17 @@ Dato il file binario della domanda precedente, di dimensione 5381KB, calcolare l
 
 Si sa che il file (di dimensione 5381KB) contiene una sequenza di numeri reali in formato double (64 bit per numero), calcolare a quanti blocchi di indice (complessivamente, a primo e secondo livello) si accede, per leggere i primi 256K (1 K significa 2^10) numeri.
 
-**Risposta:**
+**Risposta:** 2
+
+256k numeri = $256 * 2^{10}$ = 262144 numeri
+Dim_numero = 64 bit = 8 Bytes
+Dim_totale = numeri * dim_numero = 262144 * 8 Bytes = 2.097.152 Bytes
+
+Blocchi_dati_necessari = ceiling(Dim_totale /dim_pagina) = 2.097.152 / 4096 = 512 
+
+I blocchi indice al liv 2 abbiamo detto contengono 1024 puntatori.
+Al livello L_1 si accede sempre al root.
+Al livello 2:
+blocchi L_2 necessari = ceiling(N_blocchi_dati / 1024) = ceiling (0.5) = 1
+
+Accessi_totali = acc_l_1 + acc_l_2 = 1 + 1 = 2;
