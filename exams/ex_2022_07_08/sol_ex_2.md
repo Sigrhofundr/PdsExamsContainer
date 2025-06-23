@@ -15,6 +15,8 @@ A3. Lasciare tutto com'è (senza modifiche) in quanto MTTR è trascurabile?
 B. Si consideri una struttura RAID con 2 dischi in configurazione “mirrored”.
 Se ognuno dei dischi può guastarsi in modo indipendente dall’altro, con MTTR = 36 ore, quanto deve essere MTTF per garantire MTTDL > 100*MTTF)?
 
+---
+
 **Risposte**
 
 Riepiloghiamo le formule:
@@ -38,6 +40,8 @@ A2. Per lo stesso motivo riportato nella domanda precedente, moltiplicare per 0.
 A3. No, non è corretto lasciare tutto com’è e trascurare MTTR: anche se MTTR è piccolo rispetto a MTTF, 
 ha un impatto diretto sulla probabilità di perdita dati. Trascurare MTTR significherebbe assumere che la finestra di 
 rischio sia nulla, il che non è realistico. È invece fondamentale ridurre MTTR il più possibile, ma mai ignorarlo nei calcoli di affidabilità.
+
+---
 
 B. Dati forniti:
 * MTTR = 36 ore
