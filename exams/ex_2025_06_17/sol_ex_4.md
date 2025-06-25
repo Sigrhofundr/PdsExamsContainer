@@ -73,8 +73,8 @@ int as_prepare_load(struct addrspace *as);
 
 Rispondere SÌ/NO alle seguenti domande:
 
-* la funzione as_prepare_load restituisce la dimensione dello spazio degli indirizzi, espressa come numero di pagine.
-* getppages chiama ram_stealmem
-* type vaddr_t can be used for kernel and user logical addresses
-* il tipo vaddr_t può essere usato per indirizzi logici sia kernel che user
-* free_kpages (chiamata da kfree) può essere utilizzata per liberare lo stack di livello kernel di un processo
+* la funzione as_prepare_load restituisce la dimensione dello spazio degli indirizzi, espressa come numero di pagine. **No** - si occupa di creare lo spazio di indirizzamento di un processo mappando partizioni logiche contigue su
+  segmenti fisici contigui.
+* getppages chiama ram_stealmem - **Sì** - viene fatto per garantire che l'accesso alla memoria durante l'allocazione sia sicuro e non si verifichino race conditions
+* il tipo vaddr_t può essere usato per indirizzi logici sia kernel che user **Sì** -rappresenta l'indirizzo virtuale di entrambi, 
+* free_kpages (chiamata da kfree) può essere utilizzata per liberare lo stack di livello kernel di un processo **Sì** -  si occupa di restituire le pagine fisiche usate dallo stack kernel al gestore della memoria fisica (free list), rendendole disponibili per altre allocazioni future.
