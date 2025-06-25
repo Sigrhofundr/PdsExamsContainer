@@ -16,3 +16,6 @@ Le soluzioni presentate in questo progetto sono state elaborate da me. In alcuni
 ### **Verificate sempre le soluzioni autonomamente!**
 
 Questo progetto ha lo scopo di fornire un punto di riferimento aggiuntivo per lo studio, ma non deve essere considerato una fonte infallibile. Utilizzatelo se volete come supporto per la vostra preparazione e per confrontare le vostre risposte, o anche solo per prendere il testo in un formato più comodo, ma la verifica finale è sempre a vostro carico.
+
+> [!IMPORTANT]
+> Dato che nell'A.A. corrente (2024/2025), il lab 5 di OS161 non era traccia d'esame, è probabile che non riporterò i relativi esercizi (o potrei riportarne il testo)
