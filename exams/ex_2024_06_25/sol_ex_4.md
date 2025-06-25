@@ -31,7 +31,7 @@ l'indirizzo fisico corrispondente (`firstpaddr`), sottraendo una costante chiama
 
 Avendo indicato che la RAM è pari a 4MB, possiamo dire che:
 * 4MB = 4 * 1024 * 1024 = $4194304_{10}$ = $400000_{16}$
-* da sopra, l'indirizzo logico max sarà dato da `Valore RAM + MIPS_KSEG0` = $400000$ + $0x80000000$ = $0x80400000$
+* da sopra, l'indirizzo logico kernel max sarà dato da `Valore RAM + MIPS_KSEG0` = $400000$ + $0x80000000$ = $0x80400000$
 * max physical addr. = RAM = $0x400000$
 
 In generale, il kernel può “usare” (vedere, generare, manipolare) indirizzi oltre $0x80400000$, ma se prova ad accedervi come RAM fisica 
