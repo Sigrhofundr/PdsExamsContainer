@@ -21,7 +21,7 @@ Ogni puntatore punta a un blocco di secondo livello
 Ogni blocco di secondo livello contiene 1024 puntatori a blocchi dati
 Totale blocchi dati: 1024 × 1024 = 1.048.576 blocchi
 
-Dim_max_file = Blocchi dati × Dimensione blocco = 1.048.576 × 4 KB = 4.194.304 KB = 4.096 MB = 4 GB
+Dim_max_file = Blocchi dati × Dimensione blocco = 1.048.576 × 4 KB = 4.194.304 KB = 4.096 MB = 4 GB (lui vuole indicato 4 GB)
 
 ---
 
