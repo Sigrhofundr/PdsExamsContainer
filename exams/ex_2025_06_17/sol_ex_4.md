@@ -46,6 +46,7 @@ Calcoliamo la Dim della RAM (in esadecimale) => 16 MB = 16 * 1024 * 1024 = 16777
 * 2_ va = USERSTACK_result + offset = $7FFEE000 + A0F0$ = $0x7FFF80F0$
 
 * 3_ invalido in quanto non rientra in nessuna delle base
+
 * 4_ 300000 <= 302D00 < 300000 + (3*4096_dec) --> 300000 <= 302D00 < 300000 + 3000 --> 300000 <= 302D00 < 303000 ok
 * 4_ va = 4000 + (302D00-300000) = 4000 + 2D00 = 6D00
 

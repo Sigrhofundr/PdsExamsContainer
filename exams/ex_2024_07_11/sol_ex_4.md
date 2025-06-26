@@ -19,7 +19,7 @@ La funzione oS161 `load_elf` imposta lo spazio di indirizzamento di un nuovo pro
 
 **Risposte**
 
-Avendo indicato che la RAM è pari a 4MB, possiamo dire che:
+Avendo indicato che la RAM è pari a 8MB, possiamo dire che:
 * 8MB = 8 * 1024 * 1024 = $8.388.608_{10}$ = $800000_{16}$
 * Max Kernel Address Ram = $0x80000000 + 800000$ = $0x80800000$
 * Assumiamo che le pagine abbiamo dimensioni 4KB = 4096

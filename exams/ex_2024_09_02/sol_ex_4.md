@@ -13,7 +13,8 @@ La memoria fisica in `dumbvm` viene allocata chiamando la funzione `ram_stealmem
 
 #### Parte II
 
-È noto che lo spazio degli indirizzi di un utente è caratterizzato da `as->as_pbase1`, `as->as_pbase2`, `as->as_vbase1`, `as->as_vbase2`, `as->as_npages1`, `as->as_npages2`, `as->as_stackpbase`, aventi i seguenti valori: `0x200000`, `0x300000`, `0x3000`, `0x7000`, `3`, `4`, `0x400000`. Le pagine in OS161 hanno una dimensione di 4 KB. È anche noto che in `dumbvm` viene allocato uno stack utente di 18 pagine.
+È noto che lo spazio degli indirizzi di un utente è caratterizzato da `as->as_pbase1`, `as->as_pbase2`, `as->as_vbase1`, `as->as_vbase2`, 
+`as->as_npages1`, `as->as_npages2`, `as->as_stackpbase`, aventi i seguenti valori: `0x200000`, `0x300000`, `0x3000`, `0x7000`, `3`, `4`, `0x400000`. Le pagine in OS161 hanno una dimensione di 4 KB. È anche noto che in `dumbvm` viene allocato uno stack utente di 18 pagine.
 
 Dato il seguente indirizzo logico (potrebbe essere sia utente che kernel), convertirlo nel relativo indirizzo fisico: `0x8110`, `0x6500`, `0x7FFFE010`, `0x805000B0`.
 
@@ -33,7 +34,27 @@ Dato il seguente indirizzo logico (potrebbe essere sia utente che kernel), conve
 **Parte II**
 
 Dato il seguente indirizzo logico (potrebbe essere sia utente che kernel), convertirlo nel relativo indirizzo fisico: 
-1. `0x8110`
-2. `0x6500`
-3. `0x7FFFE010`
-4. `0x805000B0`.
+1. `0x8110` → `0x301110` 
+2. `0x6500` → Invalid
+3. `0x7FFFE010` → `0x410010`
+4. `0x805000B0` → `5000B0`
+---
+Premesso:
+Avendo indicato che la RAM è pari a 8MB, possiamo dire che:
+* 8MB = 8 * 1024 * 1024 = $8.388.608_{10}$ = $800000_{16}$
+* Max Kernel Address Ram = $0x80000000 + 800000$ = $0x80800000$
+
+1. `0x8110` dovrebbe essere nello user space. Vediamo se ha un indirizzo compatibile:
+   * as_vbaseX <= 0x8110 < base virtual address del segmento X + (numero pagine del segmentoX * dim_pagina)
+   * 0x7000 <= 0x8110 < 0x7000 + (4 * 4096)_dec → 0x7000 <= 0x8110 < 0x7000 + 4000 → 0x7000 <= 0x8110 < 0xB000 - OK
+   * offset = va - asvbase2 = 8110 - 7000 = 1110
+   * pa = as_pbase2 + offset = 300000 + 1110 = 301110
+2. `0x6500` verifichiamo se si trova in un segmento compatibile:
+   * as_vbaseX <= 0x6500 < base virtual address del segmento X + (numero pagine del segmentoX * dim_pagina)
+   * 0x3000 <= 0x6500 < 0x3000 + (3*4096)_dec → 0x3000 <= 0x6500 < 0x6000 → NO, non rientra in un segmento compatibile (supera il num di pagine)
+3. `0x7FFFE010` verifichiamo se si trova in un segmento compatibile (sarà dello userstack):
+   * Dim_stack = n_pag_stack * dim_pag = 18 * 4096 = 73728_dec = 12000_ex
+   * base_virt_stack = User_stack - dim_stack = 80000000 - 12000 = 7FFEE000
+   * pa = (va - base_virt_stack) + as_stackpbase = (7FFFE010 - 7FFEE000)+ 400000 = 410010
+4. `0x805000B0` è un indirizzo logico del kernel
+   * pa = va - KSEG0 = 805000B0 - 80000000 = 5000B0
