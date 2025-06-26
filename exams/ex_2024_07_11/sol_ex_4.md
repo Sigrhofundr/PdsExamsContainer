@@ -10,10 +10,10 @@ Per ciascuno dei seguenti indirizzi fisici, convertire in un indirizzo logico de
 * `0x202D00`
 
 La funzione oS161 `load_elf` imposta lo spazio di indirizzamento di un nuovo processo utente. In diverse fasi, `load_elf` chiama `load_segment`, `as_prepare_load`, `as_complete_load`, `as_define_region`. Rispondere alle seguenti domande:
-* Quale funzione viene chiamata per allocare lo spazio di indirizzamento nella memoria fisica? `as_prepare_load`
-* Quale funzione viene chiamata per impostare gli indirizzi logici e le dimensioni dei segmenti di codice e dati? `as_define_region`
-* Quale funzione legge il segmento dati dal file elf? `load_segment`
-* Quale funzione legge il segmento codice dal file elf? `load_segment`
+* Quale funzione viene chiamata per allocare lo spazio di indirizzamento nella memoria fisica? **R** - `as_prepare_load`
+* Quale funzione viene chiamata per impostare gli indirizzi logici e le dimensioni dei segmenti di codice e dati? **R** - `as_define_region`
+* Quale funzione legge il segmento dati dal file elf? **R** - `load_segment`
+* Quale funzione legge il segmento codice dal file elf? **R** - `load_segment`
 
 ---
 
