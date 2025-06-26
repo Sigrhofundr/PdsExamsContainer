@@ -52,12 +52,18 @@ Totale: 3 blocchi indice
 
 Dato il file binario della domanda precedente, di dimensione 5381KB, calcolare la frammentazione interna relativa ai blocchi indice.  Il risultato va rappresentato in Byte (B).
 
+Nel primo livello avremo solo due puntatori, necessari ai blocchi di II livello.<br>
+Usano 2*4 = 8 , pertanto al primo livello lo spazio sprecato = 4096- 8 B = 4088 B<br>
 Sappiamo che un blocco indice di secondo livello contiene 1024 puntatori. Quindi avremo 1346-1024 = 322 puntatori utilizzati nel secondo blocco indice.<br>
 Per ottenere la frammentazione interna tuttavia ci servono i blocchi **non utilizzati**, che otteniamo facendo 1024 -322 = 702 puntatori. <br>
 A questo punto ci basta moltiplicare per la dimensione dei puntatori per ottenere il valore della frammentazione interna relativa ai blocchi indice espressa in Byte. <br>
-Framm_interna = Puntatori_non_utilizzati * Dim_Puntatore = 702 * 4 = 2808 Bytes
+Framm_interna_Secondo_liv = Puntatori_non_utilizzati * Dim_Puntatore = 702 * 4 = 2808 Bytes
+Frammentazione Totale = Framm_interna_blocco_I_lv + Framm_interna_II_liv = 4088 + (0 + 2808) = 6896
 
-**Risposta:** 2808 Bytes
+**Risposta:** 6896 Bytes
+>[!WARNING]
+> Il prof come soluzione ha riportato 2808, considerando solo il II liv
+
 
 ### Domanda 8
 
