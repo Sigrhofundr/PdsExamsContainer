@@ -21,7 +21,7 @@ B2) Si calcoli quale sarebbe la dimensione di una page table organizzata mediant
 
 **Risposte**
 
-A1) UEntrambe le implementazioni sono possibili, ma hanno pro e contro.
+A1) Entrambe le implementazioni sono possibili, ma hanno pro e contro.
 Una lista di frame singoli è più semplice da gestire e permette una rapida allocazione/deallocazione di singole pagine (se la lista non è ordinata, la complessità è O(1)).
 Una lista di intervalli contigui è più efficiente in termini di overhead di memoria se la memoria è poco frammentata, in quanto un singolo nodo può rappresentare un grande blocco libero. 
 È particolarmente utile quando si devono allocare più pagine contigue, come nel caso delle page table, che richiedono un blocco di memoria contiguo per essere allocate
@@ -42,7 +42,7 @@ Quindi avremo
 * as_stackvbase = vstack_end - (stack_utente * page_size) + 1 = 3FFFFFFF - (18 * 4096)_dec + 1 = 3FFFFFFF - 12000 + 1 = 3FFEE000
 * as_stackvbase = $0x3FFEE000$
 
-Il limite inferiore sarà dato da min(as_vbase1,as_vbase2,as_stacvbase) = min(400000,500000,3FFEE000) = as_vbase1 = 0x400000
+Il limite inferiore sarà dato da min(as_vbase1,as_vbase2,as_stackvbase) = min(400000,500000,3FFEE000) = as_vbase1 = 0x400000
 * Pagine totali = (ind_max - ind_min) / page_size = (1.073.741.823 - 4.194.304 + 1)/4096 =  261120
 * Pagine valide = as_npages1 + as_npages2 + stack_pages = 25
 
