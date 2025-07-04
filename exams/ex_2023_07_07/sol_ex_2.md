@@ -14,7 +14,7 @@ Dati per disco = Dati per superficie * (numero dischi * lati_dischi) = 52428800 
 Numero cilindri = Numero tracce per superficie = 2048 cilindri <br>
 B) **D** - Il metodo di indirizzamento del disco CHR (Cilindro-Testina-Settore) consente a un blocco disco di estendersi su più settori di una data traccia (identificata da una coppia cilindro, testina), ma non su tracce diverse. I seguenti sono formati di blocco validi: 256 B, 2048 B, 51200 B? (Motivare le risposte)<br>
 **R** - Date le premesse: un blocco può attraversare più settori della stessa traccia e un blocco NON può attraversare tracce diverse. Un blocco per essere valido deve essere multiplo della dimensione del settore e non deve superare la capacità complessiva della traccia.<br>
-Quindi: 256 B? NO, non è multiplo di 512; 2048 B ? sì, è multiplo e corrisponde a 4 settori consecutivi; 51200? NO, supera la capacità per traccia!
+Quindi: 256 B? NO, non è multiplo di 512; 2048 B ? sì, è multiplo e corrisponde a 4 settori consecutivi; 51200? NO, supera la capacità per traccia!<br>
 C) **D** - Se i piatti del disco ruotano a 5400 rpm (rivoluzioni al minuto), qual è il ritardo massimo di rotazione? Qual è il ritardo medio di rotazione?
 Se una traccia di dati può essere trasferita per rivoluzione, qual è il tasso di trasferimento (espresso in bit/secondo)?
 Quale sarebbe il tasso di trasferimento se un intero cilindro di dati potesse essere trasferito per rivoluzione?<br>
