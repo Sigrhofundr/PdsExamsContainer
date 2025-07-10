@@ -1,7 +1,7 @@
 ## Domanda 5 (comprende le domande da 19 a 20 del questionario) - Risposte con Sì/No alle affermazioni/domande
 
 ### Domanda 19
-//TODO da verificare una volta pubblicate le soluzioni
+
 _Premessa:_
 Consideriamo le funzioni `thread_switch` e `thread_yield`.
 
@@ -17,6 +17,8 @@ _Domande:_
 **Sì** - thread_yield può essere chiamata solo dal thread corrente, che volontariamente cede la CPU e si rimette nello stato pronto (S_READY).
 Non può essere usata per agire su altri thread.
 * `thread_switch` viene chiamato da `wchan_sleep`, per mettere un thread nello stato `S_SLEEP` (che significa attesa) **Sì**
+
+**RISPOSTA REPORT PROF CABODI:** (conferma quanto sopra riportato)
 
 ---
 
@@ -43,3 +45,5 @@ di un nuovo processo (struct proc) avviene con altre funzioni
 **No** - `thread_fork` riceve come parametro un puntatore a funzione che rappresenta la routine che il nuovo thread 
 dovrà eseguire, non una funzione di errore. In caso di errore restituisce un codice di errore, ma non chiama una callback.
 * `thread_fork` ha un parametro struct proc * proc, che può essere NULL o un puntatore a una struct proc esistente **Sì**
+
+**RISPOSTA REPORT PROF CABODI:** (conferma quanto sopra riportato)
