@@ -15,7 +15,7 @@ Un sistema ha le seguenti caratteristiche:
 
 **Punteggio max.: 0,50**
 
-A) Calcolare il TLB hit minimo necessario per garantire una riduzione massima del 40% del tempo di accesso effettivo (EAT), rispetto a un tempo RAM di 40 ns.
+A) Calcolare il TLB hit minimo necessario per garantire un incremento massimo del 40% del tempo di accesso effettivo (EAT), rispetto a un tempo RAM di 40 ns.
 Esprimere il risultato come frazione di 1, con due cifre decimali (es. 0.85 o 0,85).
 Si accetta un errore di 0.01.
 
